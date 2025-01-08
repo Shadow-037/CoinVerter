@@ -1,0 +1,12 @@
+.bgshop {
+	padding: auto 5%;
+	position: relative;
+	background-color: transparent;
+	height: 100vh;
+}
+
+@media screen and (max-width: 1150px) {
+	.bgshop {
+		height: 100vh;
+	}
+}

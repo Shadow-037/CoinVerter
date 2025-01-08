@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" type="image/gif" href="img/logo.png">
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale = 1, width = device-width">
+<link id="mystylesheet" rel="stylesheet" type="text/css"
+	href="CSS/light.css">
+
+<title>CoinVerter Login</title>
+<script>
+    // Funzione per formattare il numero della carta
+    function formatCardNumber(input) {
+      let value = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+      let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+      input.value = formattedValue;
+    }
+  </script>
+</head>
+<body class="bgPage">
+	<div class="login">
+		<div class="loginForm">
+			<h2>Utilizza metodo di pagamento</h2>
+			<form action="Checkout" method="POST">
+				<input type="text" name="name" placeholder="Nome sulla carta"
+					required="required"> <input type="text" name="CardNumber"
+					maxlength="19" placeholder="Numero Carta" required="required"
+					pattern="\d{4}(\s\d{4}){2,4}" oninput="formatCardNumber(this)">
+				<input type="text" name="ExDate" placeholder="MM/YY"
+					required="required" pattern="(0[1-9]|1[0-2])\/\d{2}"> <input
+					type="text" name="CVC" placeholder="CVC" required="required">
+				<button type="submit">Procedi al pagamento</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@media screen and (max-width: 900px) {
+	.bgshop {
+		height: 100%;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.bgshop {
+		height: 100%;
+	}
+}
