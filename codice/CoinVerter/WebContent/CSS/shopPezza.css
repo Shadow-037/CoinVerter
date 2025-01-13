@@ -10,9 +10,3 @@
 		height: 100vh;
 	}
 }
-
-@media screen and (max-width: 900px) {
-	.bgShop {
-		height: 100%;
-	}
-}

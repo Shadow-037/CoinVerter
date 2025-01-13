@@ -98,11 +98,11 @@ public class ProductBean implements Serializable {
 
 	@Override
 	public String toString() {
-		return "[code=" + code + ", name=" + name + ", price=" + price + ", quantity=" + quantity
-				+ ", tipo=" + tipo +", available=" + available + "]";
+		return "ProductBean [code=" + code + ", name=" + name + ", price=" + price + ", quantity=" + quantity
+				+ ", tipo=" + tipo + ", foto=" + foto + ", available=" + available + "]";
 	}
 
-
+	
 
 	@Override
 	public int hashCode() {

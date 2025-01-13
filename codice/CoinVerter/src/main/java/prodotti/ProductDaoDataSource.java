@@ -24,6 +24,15 @@ public class ProductDaoDataSource implements IProductDAO<ProductBean> {
 	private String selectSQL = "SELECT * FROM " + ProductDaoDataSource.TABLE_NAME + " WHERE ID_prodotto = ?";
 	
 	private static DataSource ds;
+	
+	  public static void setDataSource(DataSource dataSource) {
+	        ds = dataSource;
+	    }
+	    
+	    public static DataSource getDataSource() {
+	        return ds;
+	    }
+	
 
 	static {
 		try {
@@ -104,7 +113,7 @@ public class ProductDaoDataSource implements IProductDAO<ProductBean> {
 		ProductBean oldBean = new ProductBean();
 
 		String updateSQL = "UPDATE " + ProductDaoDataSource.TABLE_NAME + 
-		" SET nome = ?,quantità = ?, tipo = ?, prezzo = ?, foto = ?";
+		" SET nome = ?, tipo = ?, prezzo = ?, foto = ? where ID_prodotto = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -125,17 +134,17 @@ public class ProductDaoDataSource implements IProductDAO<ProductBean> {
 			if(product.getName()== null) {preparedStatement.setString(1, oldBean.getName());}
 			else preparedStatement.setString(1, product.getName());
 			
-			if(product.getType()== null) {preparedStatement.setString(1, oldBean.getType());}
-			else preparedStatement.setString(1, product.getType());
+			if(product.getType()== null) {preparedStatement.setString(2, oldBean.getType());}
+			else preparedStatement.setString(2, product.getType());
 			
-			if(product.getPrice()< 0) {preparedStatement.setDouble(1, oldBean.getPrice());}
-			else preparedStatement.setDouble(1, product.getPrice());
+			if(product.getPrice()< 0) {preparedStatement.setDouble(3, oldBean.getPrice());}
+			else preparedStatement.setDouble(3, product.getPrice());
 			
-			if(product.getFoto()== null) {preparedStatement.setString(1, oldBean.getFoto());}
-			else preparedStatement.setString(1, product.getFoto());
+			if(product.getFoto()== null) {preparedStatement.setString(4, oldBean.getFoto());}
+			else preparedStatement.setString(4, product.getFoto());
 			
-			
-			
+			preparedStatement.setInt(5, oldBean.getCode());
+			preparedStatement.execute();//sto codice è scritto da un coglione pt2 - coder
 			}
 
 		} finally {
@@ -199,7 +208,7 @@ public class ProductDaoDataSource implements IProductDAO<ProductBean> {
 
 		int result = 0;
 
-		String deleteSQL = "UPDATE " + ProductDaoDataSource.TABLE_NAME + " SET disponibile = 'false' WHERE ID_prodotto = ?";
+		String deleteSQL = "UPDATE " + ProductDaoDataSource.TABLE_NAME + " SET disponibile = FALSE WHERE ID_prodotto = ?";
 
 		try {
 			connection = ds.getConnection();

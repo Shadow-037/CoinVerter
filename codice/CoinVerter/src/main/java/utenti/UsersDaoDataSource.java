@@ -22,6 +22,16 @@ public class UsersDaoDataSource implements IUsersDAO<User> {
 	private static DataSource ds;
 	private static final String TABLE_NAME = "utente";
 
+	
+    public static void setDataSource(DataSource dataSource) {
+        ds = dataSource;
+    }
+    
+    public static DataSource getDataSource() {
+        return ds;
+    }
+    
+	
 	static {
 		try {
 			Context initCtx = new InitialContext();

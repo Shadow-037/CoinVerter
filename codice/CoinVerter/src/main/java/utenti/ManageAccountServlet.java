@@ -57,7 +57,8 @@ public class ManageAccountServlet extends HttpServlet{
 				break;
 			}//switch
 		}
-		response.sendRedirect(getServletContext().getContextPath()+ "/admin/gindex.jsp");
+		//response.sendRedirect(getServletContext().getContextPath()+ "/admin/gindex.jsp");
+		response.sendRedirect("GestioneACC");
 		return;
 		
 	

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.ArrayList,prodotti.ProductBean"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList,prodotti.ProductBean,java.text.DecimalFormat"%>
 
 
 <%
@@ -11,6 +11,9 @@
 		response.sendRedirect(request.getContextPath()+"/ProdottiAD");
 		return;
 	}
+
+	DecimalFormat df = new DecimalFormat("#.##");
+
 %>
 
 
@@ -42,41 +45,53 @@
 			<section>
 				<div class="container">
 					<!-- items -->
-					<%for(ProductBean p : prodotti){%>
-					<div class="itemContainer">
-						<div class="cart-item">
-							<div class="row">
-								<div class="imgContainer center-item">
-									<img id="pImg"
-										src="<%=getServletContext().getContextPath()%>/<%=p.getFoto()%>"
-										alt="">
-								</div>
-
-								<h5><%=p.getCode()%></h5>
-								<h5><%=p.getName()%></h5>
-								<h5><%=p.getQuantity()%></h5>
-								<h5><%=p.getPrice()%></h5>
-								<h5><%=p.getType()%></h5>
-								<div class="last">
-									<div class="dataContainer center-item">
-										<div class="modifyBtn">
-											<a href="Gestione?id=<%=p.getCode()%>&activity=remove"><img
-												src="img/icon/iconModify.png" alt="" class="remove-item"></a>
-										</div>
-										<div class="modifyBtn">
-											<a href="Gestione?id=<%=p.getCode()%>&activity=delete"><img
-												src="img/icon/iconTrash.png" alt="" class="remove-item"></a>
-										</div>
+					<table>
+						<tr>
+							<th></th>
+							<th>ID</th>
+							<th>NOME</th>
+							<th>QUANTITA'</th>
+							<th>PREZZO</th>
+							<th>CATEGORIA</th>
+							<th class="mamma"></th>
+						</tr>
+						<%for(ProductBean p : prodotti){%>
+						<tr>
+							<!--<td><img id="pImg" src="<%=getServletContext().getContextPath()%>/<%=p.getFoto()%>"	alt=""></td> -->
+							<td><img id="pImg" src="<%=p.getFoto()%>"	alt=""></td>
+							<td><%=p.getCode()%></td>
+							<td><%=p.getName()%></td>
+							<td><%=p.getQuantity()%></td>
+							<td><%=df.format(p.getPrice())%></td>
+							<td><%=p.getType()%></td>
+							<td class="mamma" colspan="5">
+								<div class="dataContainer center-item">
+									<div class="modifyBtn">
+										<a href="ModificaProdotto?id=<%= p.getCode()%>"><img src="img/icon/iconModify.png" alt="" class="remove-item"></a>
+									</div>
+									<div class="modifyBtn">
+										<a href="Gestione?id=<%=p.getCode()%>&activity=delete"><img	src="img/icon/iconTrash.png" alt="" class="remove-item"></a>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-					<% }%>
+							</td>
+						</tr>
+						<tr class="papa">
+							<td colspan="4">
+								<div class="dataContainer center-item">
+									<div class="modifyBtn">
+										<a href="ModificaProdotto?id=<%= p.getCode()%>"><img src="img/icon/iconModify.png" alt="" class="remove-item"></a>
+									</div>
+									<div class="modifyBtn">
+										<a href="Gestione?id=<%=p.getCode()%>&activity=delete"><img	src="img/icon/iconTrash.png" alt="" class="remove-item"></a>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<%} %>
+					</table>
 				</div>
 			</section>
 		</div>
-		<script src="app.js"></script>
 	</main>
 </body>
 </html>

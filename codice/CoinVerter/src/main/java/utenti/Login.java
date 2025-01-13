@@ -24,7 +24,7 @@ public class Login extends HttpServlet {
 			String password = request.getParameter("pwd");
 			
 			List<String> errors = new ArrayList<>();
-        	RequestDispatcher dispatcherToLoginPage = request.getRequestDispatcher("login.jsp");
+        	//RequestDispatcher dispatcherToLoginPage = request.getRequestDispatcher("login.jsp");
 
 			if(email == null || email.trim().isEmpty()) {
 				errors.add("Il campo username non può essere vuoto!");
@@ -34,7 +34,8 @@ public class Login extends HttpServlet {
 			}
             if (!errors.isEmpty()) {
             	request.setAttribute("errors", errors);
-            	dispatcherToLoginPage.forward(request, response);
+            	response.sendRedirect("login.jsp");
+            	//dispatcherToLoginPage.forward(request, response);
             	return; // note the return statement here!!!
             }
             else{
@@ -57,7 +58,8 @@ public class Login extends HttpServlet {
 			} else {
 				errors.add("email o password errate");
 				request.setAttribute("errors", errors);
-				dispatcherToLoginPage.forward(request, response);
+				response.sendRedirect("login.jsp");
+				//dispatcherToLoginPage.forward(request, response);
 			}
 	}
    }

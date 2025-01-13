@@ -129,8 +129,7 @@ body {
 	cursor: pointer;
 }
 
-@
-keyframes appear { 0% {
+@keyframes appear { 0% {
 	opacity: 0;
 }
 
@@ -139,8 +138,8 @@ to {
 }
 
 }
-@
-keyframes disappear { 0% {
+
+@keyframes disappear { 0% {
 	opacity: 1;
 }
 
@@ -370,8 +369,7 @@ to {
 	height: 100%;
 }
 
-@
-keyframes fadeIn { 0% {
+@keyframes fadeIn { 0% {
 	opacity: 0;
 }
 
@@ -380,8 +378,7 @@ to {
 }
 
 }
-@
-keyframes slideInRight { 0% {
+@keyframes slideInRight { 0% {
 	transform: translate3d(100%, 0, 0);
 	visibility: visible;
 }
@@ -391,8 +388,7 @@ to {
 }
 
 }
-@
-keyframes slideOutLeft { 0% {
+@keyframes slideOutLeft { 0% {
 	transform: translateZ(0);
 }
 
@@ -518,8 +514,7 @@ to {
 	animation-name: slideOutUp;
 }
 
-@
-keyframes searchIn { 0% {
+@keyframes searchIn { 0% {
 	opacity: 0;
 }
 
@@ -528,8 +523,7 @@ to {
 }
 
 }
-@
-keyframes slideInDown { 0% {
+@keyframes slideInDown { 0% {
 	transform: translate3d(0, -100%, 0);
 	/*transform: translate3d(-100%, 0, 0);*/
 	visibility: visible;
@@ -540,8 +534,7 @@ to {
 }
 
 }
-@
-keyframes slideOutUp { 0% {
+@keyframes slideOutUp { 0% {
 	transform: translateZ(0);
 }
 
@@ -586,6 +579,38 @@ to {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.loginForm input[type="number"], .loginForm select {
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.loginForm input[type="file"] {
+	margin-bottom: 20px;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.loginForm select {
+ 	width: 75%;
+}
+
+.loginForm select {
+  	color: gray;
+}
+  
+.loginForm select.valid {
+	color: black;
+}
+  
+.loginForm select option {
+	color: black;
 }
 
 .loginForm button[type="submit"] {
@@ -825,7 +850,6 @@ footer a:hover {
 	padding: auto 5%;
 	position: relative;
 	background-color: transparent;
-	/* height: 100%;*/
 }
 
 .megaPezza {
