@@ -31,6 +31,18 @@ public class ProductBean implements Serializable {
 		foto = null;
 		available = true;
 	}
+	
+	public ProductBean(int c, String n, double p, double v, String t) {
+		code = c;
+		name = n;
+		price = p;
+		value = v;
+		quantity = 1;
+		this.setType(t);
+		foto = null;
+		available = true;
+	}
+	
 
 	public int getCode() {
 		return code;
