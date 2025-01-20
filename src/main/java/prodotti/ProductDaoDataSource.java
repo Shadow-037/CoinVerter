@@ -115,7 +115,7 @@ public class ProductDaoDataSource implements IProductDAO<ProductBean> {
 		ProductBean oldBean = new ProductBean();
 
 		String updateSQL = "UPDATE " + ProductDaoDataSource.TABLE_NAME + 
-		" SET nome = ?, tipo = ?, prezzo = ?, foto = ? where ID_prodotto = ?";
+		" SET nome = ?, tipo = ?, valore = ?, prezzo = ?, foto = ? where ID_prodotto = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -140,13 +140,16 @@ public class ProductDaoDataSource implements IProductDAO<ProductBean> {
 			if(product.getType()== null) {preparedStatement.setString(2, oldBean.getType());}
 			else preparedStatement.setString(2, product.getType());
 			
-			if(product.getPrice()< 0) {preparedStatement.setDouble(3, oldBean.getPrice());}
-			else preparedStatement.setDouble(3, product.getPrice());
+			if(product.getPrice()< 0) {preparedStatement.setDouble(3, oldBean.getValue());}
+			else preparedStatement.setDouble(3, product.getValue());
 			
-			if(product.getFoto()== null) {preparedStatement.setString(4, oldBean.getFoto());}
-			else preparedStatement.setString(4, product.getFoto());
+			if(product.getPrice()< 0) {preparedStatement.setDouble(4, oldBean.getPrice());}
+			else preparedStatement.setDouble(4, product.getPrice());
 			
-			preparedStatement.setInt(5, oldBean.getCode());
+			if(product.getFoto()== null) {preparedStatement.setString(5, oldBean.getFoto());}
+			else preparedStatement.setString(5, product.getFoto());
+			
+			preparedStatement.setInt(6, oldBean.getCode());
 			preparedStatement.execute();//sto codice è scritto da 2 coglioni pt3 - coders
 			}
 

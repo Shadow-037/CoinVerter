@@ -14,10 +14,10 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/pasto/git/CoinVerter/junit-4.13.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pasto/git/CoinVerter/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alepe/git/CoinVerter/junit-4.13.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alepe/git/CoinVerter/hamcrest-core-1.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="servlet-api.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pasto/git/CoinVerter/mockito-core-5.14.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alepe/git/CoinVerter/mockito-core-5.14.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="byte-buddy-agent-1.14.17.jar"/>
 	<classpathentry exported="true" kind="lib" path="byte-buddy-1.14.17.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
